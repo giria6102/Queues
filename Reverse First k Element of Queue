@@ -1,0 +1,24 @@
+// Function to reverse first k elements of a queue.
+queue<int> modifyQueue(queue<int> q, int k) {
+    stack<int>s;
+    int n=q.size();
+    for(int i=0;i<k;i++){
+        int a=q.front();
+        q.pop();
+        
+        s.push(a);
+    }
+    while(!s.empty()){
+        int b=s.top();
+        s.pop();
+        q.push(b);
+    }
+    
+    for(int i=0;i<n-k;i++){
+        int c=q.front();
+        q.pop();
+        q.push(c);
+    }
+   
+    return q;
+}
